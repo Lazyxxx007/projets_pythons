@@ -4,8 +4,6 @@ Bienvenue dans mon repository de projets Python 🎯
 
 ## 📌 Contenu
 - Gestionnaire de bibliothèque
-    Projet réalisé en Python.
-    
     ## Fonctionnalités
     
     - Ajouter un livre
