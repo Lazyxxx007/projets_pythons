@@ -41,8 +41,8 @@ def afficher_courses():
     if not courses:
         print("Vous n'avez aucun aliment dans votre liste de courses")
         return
-    for aliment in courses:
-        print(aliment)
+    for num, aliment in enumerate(courses, start=1):# enumerate permet de faire une liste notée avec la liste en argument et avec possibilité de définir le start avec enumerate(liste, start=?)
+        print(f"{num} - {aliment}")
     
 def ajouter_aliment(aliment):
     courses = ouverture_fichier()
