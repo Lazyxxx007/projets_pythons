@@ -19,8 +19,7 @@ def accueil():
             aliment1 = input("Saisissez le nom de l'aliment que vous souhaitez ajouter: ")
             ajouter_aliment(aliment1)
         elif choix == "3":
-            aliment2 = input("Saisissez le nom de l'aliment que vous souhaitez supprimer: ")
-            supprimer_aliment(aliment2)
+            supprimer_aliment()
         elif choix == "4":
             break
         else:
@@ -58,9 +57,11 @@ def ajouter_aliment(aliment):
         ecriture_fichier(courses)
         print("Aliment ajouté avec succès! ")
 
-def supprimer_aliment(aliment):
+def supprimer_aliment():
     courses = ouverture_fichier()
-    courses.remove(aliment)
+    afficher_courses()
+    sup = int(input("Saisissez le numéro de l'aliment que vous souhaitez supprimer: "))
+    courses.pop(sup - 1)
     ecriture_fichier(courses)
     print("Aliment supprimé avec succès! ")
 
