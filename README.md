@@ -19,12 +19,13 @@ Bienvenue dans mon repository de projets Python 🎯
     - Python 3
     - Git
 
--- Gestionnaire de courses
+ 
     ## Fonctionnalités
-    - Affficher les courses
+    - Afficher la liste de courses
     - Ajouter un aliment
     - Supprimer un aliment
-    ## Technologies   
+    
+    ## Technologies
     - Python 3
     - Git
     - JSON
