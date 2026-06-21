@@ -20,6 +20,19 @@ Bienvenue dans mon repository de projets Python 🎯
     - Python 3
     - Git
 
+-- Gestionnaire de course
+    ## Fonctionnalités
+    
+    - Affficher les courses
+    - Ajouter un aliment
+    - Supprimer un aliment
+
+    ## Technologies
+    
+    - Python 3
+    - Git
+    - JSON
+
 ## 🚀 Objectif
 Améliorer mes compétences en programmation Python.
 
