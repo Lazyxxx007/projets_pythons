@@ -19,7 +19,7 @@ Bienvenue dans mon repository de projets Python 🎯
     - Python 3
     - Git
 
-- Gestionnaire de bibliothèque
+- Gestionnaire de courses
 -  
     ## Fonctionnalités
     - Afficher la liste de courses
