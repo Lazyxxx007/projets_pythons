@@ -46,9 +46,12 @@ def afficher_courses():
     
 def ajouter_aliment(aliment):
     courses = ouverture_fichier()
-    courses.append(aliment)
-    ecriture_fichier(courses)
-    print("Aliment ajouté avec succès! ")
+    if aliment in courses:
+        print("Cet aliment est déjà dans votre liste de courses")
+    else:
+        courses.append(aliment)
+        ecriture_fichier(courses)
+        print("Aliment ajouté avec succès! ")
 
 def supprimer_aliment(aliment):
     courses = ouverture_fichier()
