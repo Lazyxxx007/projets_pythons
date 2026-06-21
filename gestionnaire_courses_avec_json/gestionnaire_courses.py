@@ -36,11 +36,16 @@ def ecriture_fichier(courses):
     with open("courses.json","w") as l:
         json.dump(courses,l)
 
+def tri_save(liste):
+    liste.sort()
+    ecriture_fichier(liste)
+
 def afficher_courses():
     courses = ouverture_fichier()
     if not courses:
         print("Vous n'avez aucun aliment dans votre liste de courses")
         return
+    tri_save(courses)
     for num, aliment in enumerate(courses, start=1):# enumerate permet de faire une liste notée avec la liste en argument et avec possibilité de définir le start avec enumerate(liste, start=?)
         print(f"{num} - {aliment}")
     
