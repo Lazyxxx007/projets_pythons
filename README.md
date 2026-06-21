@@ -4,8 +4,8 @@ Bienvenue dans mon repository de projets Python 🎯
 
 ## 📌 Contenu
 - Gestionnaire de bibliothèque
+- 
     ## Fonctionnalités
-    
     - Ajouter un livre
     - Supprimer un livre
     - Modifier un livre
@@ -16,19 +16,15 @@ Bienvenue dans mon repository de projets Python 🎯
     - Statistiques
     
     ## Technologies
-    
     - Python 3
     - Git
 
--- Gestionnaire de course
+-- Gestionnaire de courses
     ## Fonctionnalités
-    
     - Affficher les courses
     - Ajouter un aliment
     - Supprimer un aliment
-
-    ## Technologies
-    
+    ## Technologies   
     - Python 3
     - Git
     - JSON
