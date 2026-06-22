@@ -60,9 +60,20 @@ def ajouter_aliment(aliment):
 def supprimer_aliment():
     courses = ouverture_fichier()
     afficher_courses()
-    sup = int(input("Saisissez le numéro de l'aliment que vous souhaitez supprimer: "))
-    courses.pop(sup - 1)
-    ecriture_fichier(courses)
-    print("Aliment supprimé avec succès! ")
+    print(f"{len(courses) +1 } - Quitter")
+    while True:
+        try: 
+            sup = int(input("Faites votre choix: "))
+            while sup > len(courses)+1:
+                sup = int(input("Veuillez choisir un numéro de la liste. "))
+            if sup == len(courses) +1:
+                return
+            else:
+                courses.pop(sup - 1)
+                ecriture_fichier(courses)
+                print("Aliment supprimé avec succès! ")
+        except ValueError:
+            print("Assurez vous de taper une valeur entière")
+        
 
 accueil()
