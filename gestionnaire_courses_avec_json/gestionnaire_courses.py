@@ -10,7 +10,8 @@ def accueil():
         print("1 - Voir les courses")
         print("2 - Ajouter un aliment")
         print("3 - Supprimer un aliment")
-        print("4 - Quitter")
+        print("4 - Modifier un aliment")
+        print("5 - Quitter")
 
         choix = input("Faites votre choix: ")
         if choix == "1":
@@ -21,6 +22,8 @@ def accueil():
         elif choix == "3":
             supprimer_aliment()
         elif choix == "4":
+            modifier_aliment()
+        elif choix == "5":
             break
         else:
             print("Choix incorrect")
@@ -68,7 +71,7 @@ def supprimer_aliment():
     while True:
         try: 
             sup = int(input("Faites votre choix: "))
-            while 1 > sup > len(courses)+1:
+            while 1 > sup or sup > len(courses)+1:
                 sup = int(input("Veuillez choisir un numéro de la liste. "))
             if sup == len(courses) +1:
                 return
@@ -80,5 +83,24 @@ def supprimer_aliment():
         except ValueError:
             print("Assurez vous de taper une valeur entière")
         
+def modifier_aliment():
+    courses = ouverture_fichier()
+    afficher_courses()
+    print(f"{len(courses) +1 } - Quitter")
+    while True:
+        try:
+            choix = int(input("Faites votre choix: "))
+            while 1 > choix or choix > len(courses)+1:
+                choix = int(input("Veuillez choisir un numéro de la liste. "))
+            if choix == len(courses) +1:
+                return
+            else:
+                aliment = input("Nouveau nom: ")
+                courses[choix-1]=aliment
+                ecriture_fichier(courses)
+                print("Aliment modifié avec succès! ")
+                return
+        except ValueError:
+            print("Assurez vous de taper une valeur entière")
 
 accueil()
