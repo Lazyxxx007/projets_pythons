@@ -50,6 +50,9 @@ def afficher_courses():
     
 def ajouter_aliment(aliment):
     courses = ouverture_fichier()
+    aliment = aliment.strip()
+    while aliment == "":
+        aliment = input("Veuillez saisir un aliment: ").strip()
     if aliment in courses:
         print("Cet aliment est déjà dans votre liste de courses")
     else:
@@ -64,7 +67,7 @@ def supprimer_aliment():
     while True:
         try: 
             sup = int(input("Faites votre choix: "))
-            while sup > len(courses)+1:
+            while 1 > sup > len(courses)+1:
                 sup = int(input("Veuillez choisir un numéro de la liste. "))
             if sup == len(courses) +1:
                 return
@@ -72,6 +75,7 @@ def supprimer_aliment():
                 courses.pop(sup - 1)
                 ecriture_fichier(courses)
                 print("Aliment supprimé avec succès! ")
+                return
         except ValueError:
             print("Assurez vous de taper une valeur entière")
         
