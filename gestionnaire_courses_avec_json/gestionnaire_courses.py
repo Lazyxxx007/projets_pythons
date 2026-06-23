@@ -53,12 +53,13 @@ def ajouter_aliment(aliment):
     aliment = aliment.strip()
     while aliment == "":
         aliment = input("Veuillez saisir un aliment: ").strip()
-    if aliment in courses:
-        print("Cet aliment est déjà dans votre liste de courses")
-    else:
-        courses.append(aliment)
-        ecriture_fichier(courses)
-        print("Aliment ajouté avec succès! ")
+    for x in courses:
+        if aliment.casefold() == x.casefold() :
+            print("Cet aliment est déjà dans votre liste de courses")
+            return
+    courses.append(aliment)
+    ecriture_fichier(courses)
+    print("Aliment ajouté avec succès! ")
 
 def supprimer_aliment():
     courses = ouverture_fichier()
