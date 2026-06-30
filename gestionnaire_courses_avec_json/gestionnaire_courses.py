@@ -20,9 +20,24 @@ def accueil():
             aliment1 = input("Saisissez le nom de l'aliment que vous souhaitez ajouter: ")
             ajouter_aliment(aliment1)
         elif choix == "3":
-            supprimer_aliment()
+            courses1 = ouverture_fichier()
+            afficher_courses()
+            print(f"{len(courses1) +1 } - Quitter")
+            sup = int(input("FSélectionnez l'aliment à supprimer:  "))
+            try:
+                supprimer_aliment(sup,courses1)
+            except ValueError:
+                print("Assurez vous de taper une valeur entière")
+            
         elif choix == "4":
-            modifier_aliment()
+            courses = ouverture_fichier()
+            afficher_courses()
+            print(f"{len(courses) +1 } - Quitter")
+            mod = int(input("Sélectionnez le nom de l'aliment à modifier: "))
+            try:
+                modifier_aliment(mod,courses)
+            except ValueError:
+                print("Assurez vous de taper une valeur entière")
         elif choix == "5":
             break
         else:
@@ -64,13 +79,8 @@ def ajouter_aliment(aliment):
     ecriture_fichier(courses)
     print("Aliment ajouté avec succès! ")
 
-def supprimer_aliment():
-    courses = ouverture_fichier()
-    afficher_courses()
-    print(f"{len(courses) +1 } - Quitter")
-    while True:
-        try: 
-            sup = int(input("Faites votre choix: "))
+def supprimer_aliment(sup,courses):
+    while True: 
             while 1 > sup or sup > len(courses)+1:
                 sup = int(input("Veuillez choisir un numéro de la liste. "))
             if sup == len(courses) +1:
@@ -80,27 +90,19 @@ def supprimer_aliment():
                 ecriture_fichier(courses)
                 print("Aliment supprimé avec succès! ")
                 return
-        except ValueError:
-            print("Assurez vous de taper une valeur entière")
         
-def modifier_aliment():
-    courses = ouverture_fichier()
-    afficher_courses()
-    print(f"{len(courses) +1 } - Quitter")
+def modifier_aliment(choix,courses):
     while True:
-        try:
-            choix = int(input("Faites votre choix: "))
-            while 1 > choix or choix > len(courses)+1:
-                choix = int(input("Veuillez choisir un numéro de la liste. "))
-            if choix == len(courses) +1:
-                return
-            else:
-                aliment = input("Nouveau nom: ")
-                courses[choix-1]=aliment
-                ecriture_fichier(courses)
-                print("Aliment modifié avec succès! ")
-                return
-        except ValueError:
-            print("Assurez vous de taper une valeur entière")
+        while 1 > choix or choix > len(courses)+1:
+            choix = int(input("Veuillez choisir un numéro de la liste. "))
+        if choix == len(courses) +1:
+            return
+        else:
+            aliment = input("Nouveau nom: ")
+            courses[choix-1]=aliment
+            ecriture_fichier(courses)
+            print("Aliment modifié avec succès! ")
+            return    
+        
 
 accueil()
