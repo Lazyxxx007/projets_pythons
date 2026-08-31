@@ -1,0 +1,6 @@
+Flask
+pycaw
+pyautogui
+comtypes
+screen-brightness-control
+python-dotenv
